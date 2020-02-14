@@ -5,7 +5,11 @@ import rootReducer from './rootReducer';
 
 // store is expecting from redux is array
 const middlewares = [logger];
-const store = createStore(rootReducer, applyMiddleware(...middlewares));
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(...middlewares),
+);
 
 export default store;
 

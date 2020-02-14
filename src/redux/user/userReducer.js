@@ -1,15 +1,15 @@
 const INITIAL_STATE = {
   //same like this.state we set initial states...
-
-  currentUser: null
+  currentUser: null,
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'SET_CURRENT_USER':
       return {
+        //always return new object...
         ...state,
-        currentUser: action.payload
+        currentUser: action.payload,
       };
 
     default:
@@ -18,7 +18,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
 };
 export default userReducer;
 
-    /**
+/**
  *
  *  ==> Reducer <==
  *
@@ -32,6 +32,10 @@ export default userReducer;
  *
  *  Redux doesn't know that we have state when the app initializes when action got fired there gonna be no state
  * so we have to set an initial state ...
+ *
+ *
+ * Caveat here to remember is **Every  single reducer get every single action that gets fired even if those actions are not related to this reducer...
+ * and thats why we want to return the state if not matched.....
  *
  *
  */
